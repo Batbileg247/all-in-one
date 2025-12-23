@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/4b2c629b84.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-text">Bataa's Project</div>
+      <div class="header-content"></div>
+      <div id="bar" class="bars"><i class="fa-solid fa-bars"></i></div>
+    </div>
+    <div class="side-bar">
+      <div class="header-text">Bataa's Project</div>
+      <div class="header-content">
+        <div class="header-content-lorem"></div>
+      </div>
+      <div class="bars"><i class="fa-solid fa-bars"></i></div>
+    </div>
+    <div class="content">
+      <div class="faq">
+        <div class="faq-header-text">Questions About Christmas</div>
+        <div id="qa" class="questions-answers"></div>
+      </div>
+      <div class="video-container">
+        <video autoplay muted loop playsinline id="bgVideo">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
+        </video>
+
+        <div class="content">
+          <h1>Interactive Video</h1>
+          <!-- Custom Pause/Play Button -->
+          <button id="toggleBtn">Pause</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>
