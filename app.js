@@ -1,18 +1,52 @@
-const bar = document.getElementById("bar");
 const qa = document.getElementById("qa");
 const video = document.getElementById("bgVideo");
 const btn = document.getElementById("toggleBtn");
+const nextBtn = document.getElementById("nextBtn");
+const pervBtn = document.getElementById("pervBtn");
+const videoChange = document.getElementById("videoChange");
+const videoContainer = document.querySelector(".background");
 
-btn.addEventListener("click", () => {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
+//slider
+const slide = [
+  {
+    addrs: "./videos/star.mp4",
+  },
+  {
+    addrs: "./videos/winter.mp4",
+  },
+  {
+    addrs: "./videos/kids.mp4",
+  },
+];
+
+let id = 0;
+
+nextBtn.addEventListener("click", () => {
+  if (id < slide.length - 1) {
+    id++;
+    updateVideo();
   }
 });
 
+pervBtn.addEventListener("click", () => {
+  if (id > 0) {
+    id--;
+    updateVideo();
+  }
+});
+
+// Helper function to keep code DRY (Don't Repeat Yourself)
+function updateVideo() {
+  videoContainer.innerHTML = ` 
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source src="${slide[id].addrs}" type="video/mp4" />
+    </video>`;
+    
+  // Toggle button visibility
+  pervBtn.classList.toggle("btn-hide", id === 0);
+  nextBtn.classList.toggle("btn-hide", id === slide.length - 1);
+}
+//QA
 
 const quas = [
   { id: 1, question: "Whose birth does Christmas celebrate?", answer: "Jesus" },
@@ -76,3 +110,58 @@ qa.addEventListener("click", (event) => {
   }
 });
 renderAll();
+
+//newYearCounter
+
+function updateTimer() {
+  const newYear = new Date("January 1, 2026 00:00:00").getTime();
+  const now = new Date().getTime();
+  const gap = newYear - now;
+
+  const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+
+  const d = Math.floor(gap / day);
+  const h = Math.floor((gap % day) / hour);
+  const m = Math.floor((gap % hour) / minute);
+  const s = Math.floor((gap % minute) / second);
+
+  document.getElementById("days").innerText = d;
+  document.getElementById("hours").innerText = h.toString().padStart(2, "0");
+  document.getElementById("minutes").innerText = m.toString().padStart(2, "0");
+  document.getElementById("seconds").innerText = s.toString().padStart(2, "0");
+}
+
+const timerInterval = setInterval(updateTimer, 1000);
+updateTimer();
+
+//sidebar
+const bar = document.getElementById("bar");
+const header = document.getElementById("header");
+const sideBarr = document.getElementById("sideBar");
+const xBttn = document.getElementById("x-btn");
+xBttn.addEventListener("click", () => {
+  sideBarr.style.transform = `translateX(-100%)`;
+  header.style.transform = `translateY(0%)`;
+});
+bar.addEventListener("click", () => {
+  header.style.transform = `translateY(-100%)`;
+  sideBarr.style.transform = `translateX(0%)`;
+  
+});
+
+//video bttn
+btn.addEventListener("click", () => {
+  // We re-select the video because the slider replaces the DOM element
+  const currentVideo = document.getElementById("bgVideo"); 
+  
+  if (currentVideo.paused) {
+    currentVideo.play();
+    btn.innerHTML = "Pause";
+  } else {
+    currentVideo.pause();
+    btn.innerHTML = "Play";
+  }
+});

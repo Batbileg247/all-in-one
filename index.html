@@ -11,39 +11,77 @@
     ></script>
   </head>
   <body>
-    <div class="header">
+    <div id="header" class="header">
       <div class="header-text">Bataa's Project</div>
       <div class="header-content"></div>
-      <div id="bar" class="bars"><i class="fa-solid fa-bars"></i></div>
-    </div>
-    <div class="side-bar">
-      <div class="header-text">Bataa's Project</div>
-      <div class="header-content">
-        <div class="header-content-lorem"></div>
+      <div id="bar" class="bars">
+        WELCOME TO MY WEBSITE<i class="fa-solid fa-bars"></i>
       </div>
-      <div class="bars"><i class="fa-solid fa-bars"></i></div>
+    </div>
+    <div class="side-bar-outer">
+      <div id="sideBar" class="side-bar">
+        <div class="side-header">
+          <p>Bataa's Project</p>
+        </div>
+        <div class="side-content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+            sed velit ullam, voluptatem rem iusto id cum molestiae? Quas vero
+            facere dolore cumque cupiditate quod perspiciatis impedit provident
+            nesciunt voluptatum! Corrupti laudantium cum amet temporibus, dolore
+            cupiditate aliquam tenetur aliquid saepe velit quia ut corporis,
+            impedit, esse exercitationem ducimus. Quas voluptas temporibus vero?
+            Illo recusandae eos ab sunt velit quo. Ab a est eius sit quas ipsum,
+            error incidunt porro. Quos quas ipsam reprehenderit aperiam, placeat
+            labore dolores assumenda, enim rem veniam commodi! Aspernatur iure
+            tempora maiores inventore optio minima.
+          </p>
+        </div>
+        <div class="side-footer-text">
+          <p>Thank u for visiting my page!</p>
+        </div>
+      </div>
+      <div id="x-btn" class="side-bar-xbtn"></div>
+      </div>
     </div>
     <div class="content">
-      <div class="faq">
-        <div class="faq-header-text">Questions About Christmas</div>
-        <div id="qa" class="questions-answers"></div>
-      </div>
       <div class="video-container">
-        <video autoplay muted loop playsinline id="bgVideo">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
-        </video>
-
-        <div class="content">
-          <h1>Interactive Video</h1>
-          <!-- Custom Pause/Play Button -->
-          <button id="toggleBtn">Pause</button>
+        <div class="background">
+          <video autoplay muted loop playsinline id="bgVideo">
+            <source id="videoChange" src="./videos/star.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="counter-new-year">
+          <h1>New Year Countdown</h1>
+          <div class="all-countdown-boxes" id="countdown">
+            <div class="countdown-box">
+              <span class="num-counter" id="days">00</span>
+              <p>Days</p>
+            </div>
+            <div class="countdown-box">
+              <span class="num-counter" id="hours">00</span>
+              <p>Hours</p>
+            </div>
+            <div class="countdown-box">
+              <span class="num-counter" id="minutes">00</span>
+              <p>Minutes</p>
+            </div>
+            <div class="countdown-box">
+              <span class="num-counter" id="seconds">00</span>
+              <p>Seconds</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq">
+          <div class="faq-header-text">Questions About Christmas</div>
+          <div id="qa" class="questions-answers"></div>
+        </div>
+        <div class="video-bttn">
+          <button class="toggleBtn" id="toggleBtn">Pause</button>
+          <div class="perv-next-btn">
+            <button id="pervBtn" class="toggleBtn btn-hide">Prev</button>
+            <button id="nextBtn" class="toggleBtn">Next</button>
+          </div>
         </div>
       </div>
     </div>
