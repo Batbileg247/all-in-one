@@ -142,19 +142,20 @@ const bar = document.getElementById("bar");
 const header = document.getElementById("header");
 const sideBarr = document.getElementById("sideBar");
 const xBttn = document.getElementById("x-btn");
+const hide = document.getElementById("hide")
 xBttn.addEventListener("click", () => {
   sideBarr.style.transform = `translateX(-100%)`;
   header.style.transform = `translateY(0%)`;
+  hide.classList.add("hide")
 });
 bar.addEventListener("click", () => {
   header.style.transform = `translateY(-100%)`;
   sideBarr.style.transform = `translateX(0%)`;
-  
+  hide.classList.remove("hide")
 });
 
 //video bttn
 btn.addEventListener("click", () => {
-  // We re-select the video because the slider replaces the DOM element
   const currentVideo = document.getElementById("bgVideo"); 
   
   if (currentVideo.paused) {
